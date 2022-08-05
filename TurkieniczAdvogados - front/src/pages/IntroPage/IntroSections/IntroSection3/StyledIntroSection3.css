@@ -1,0 +1,55 @@
+@import "../../../../StyledGlobalColor.css";
+
+#intro-section-3 {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    background-color: var(--box-shadow);
+}
+
+.title-section-3{
+    color: white;
+    padding-top: 2rem;
+}
+
+.body-section-3{
+    display: flex;
+    justify-content:space-evenly ;
+    margin-top: 2rem;
+}
+.collumn-section-3{
+    width: 40%;
+
+}
+
+.text1-collumn-section-3{
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    
+}
+
+.text-collumn-section-3{
+    text-align: center;
+    font-size: 1rem;
+    color: black;
+    padding-top: 2rem;
+}
+
+.icon-collumn-section-3{
+    width: 1.3rem;
+}
+
+.link-collumn-section-3{
+    display: flex;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+}
+
+.link-collumn-section-3:hover{
+color: blue;
+}

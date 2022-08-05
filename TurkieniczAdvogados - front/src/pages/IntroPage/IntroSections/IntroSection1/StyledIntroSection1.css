@@ -1,0 +1,134 @@
+@import "../../../../StyledGlobalColor.css";
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@1,500&family=Libre+Baskerville&family=Roboto:wght@100;300&display=swap');
+
+#intro-section-1 {
+    padding-top: 5rem;
+    height: 46vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: rgba(152, 245, 203, 0.2);
+    
+}
+
+
+.slide-container {
+    width: 100vw;
+}
+
+.slide-img {
+    width: 100vw;
+    height: 46vw;
+    overflow: hidden;
+}
+
+.text-container {
+    width: 100%;
+    position: absolute;
+    padding-left: 7rem;
+    display: flex;
+    overflow: hidden;
+}
+
+
+
+.description-text0 {
+    width: 30%;
+    padding: 1rem;
+    background-color: rgb(86, 86, 88, 0.5);
+    color: white;
+    font-size: 3rem;
+    font-family: 'Ibarra Real Nova', serif;
+    text-align: center;
+    animation: slide0 1s;
+}
+
+.description-text1 {
+    width: 30%;
+    padding: 1rem;
+    background-color: rgb(86, 86, 88, 0.5);
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    margin-left: 60%;
+    animation: slide1 1s;
+    font-family: 'Ibarra Real Nova', serif;
+}
+
+.description-text2 {
+    width: 30%;
+    padding: 1rem;
+    background-color: rgb(86, 86, 88, 0.5);
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    animation: slide2 1s;
+    font-family: 'Ibarra Real Nova', serif;
+}
+
+.description-text3 {
+    width: 30%;
+    padding: 1rem;
+    margin-left: 60%;
+    background-color: rgb(86, 86, 88, 0.5);
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    animation: slide3 1s;
+    font-family: 'Libre Baskerville', serif;
+}
+
+@keyframes slide0 {
+    0%{
+        opacity: 0;
+        margin-top: -3rem;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes slide1 {
+    0%{
+        opacity: 0;
+        margin-top: -3rem;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes slide2 {
+    0%{
+        opacity: 0;
+        margin-top: -3rem;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes slide3 {
+    0%{
+        opacity: 0;
+        margin-top: -3rem;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.arrow {
+    width: 1.5rem;
+    cursor: pointer;
+
+}
+
+.arrow-container {
+    width: 90vw;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+}

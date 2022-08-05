@@ -1,0 +1,71 @@
+@import "../../../../StyledGlobalColor.css";
+
+#intro-section-2{
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(179, 175, 175,0.5);
+}
+
+
+.title-container{
+    padding: 3vw;
+}
+
+.body-intro-section-2{
+    display: flex;
+}
+
+.middle_collumn{
+    width: 50%;
+    text-align: center;
+    display: flex;
+   justify-content: center;
+}
+
+.collumn1{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.collumn2{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.middle_collumn-text{
+    width: 80%;
+
+}
+
+.area-box-section-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    padding: 0.8rem 0;
+    gap: 0.8rem;
+}
+
+
+
+.area-box-section-2:hover{
+cursor: pointer;
+background-color: azure;
+}
+
+.img-icon-section-2{
+    width: 3rem;
+}
+
+.img-text-section-2{
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: black;
+}

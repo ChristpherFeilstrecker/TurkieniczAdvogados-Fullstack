@@ -1,0 +1,80 @@
+@media (max-width: 1000px) {
+    .menu-container {}
+
+    .menu {
+        position: fixed;
+        background-color: rgb(14, 23, 52);
+        width: 250px;
+        height: 100vh;
+        margin-top: 4px;
+        border-right-width: medium;
+        border-right-style: solid;
+        border-right-color: #e7e7e7;
+    }
+
+}
+
+.splash-screm {
+    background-color: rgb(14, 23, 52);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-splash{
+    width: 15rem;
+    animation: splash 2s infinite;
+}
+
+@keyframes splash {
+    0% {
+        opacity: 0;
+        width: 15rem;
+        margin-top: -5rem;
+    }
+
+    40% {
+        opacity: 1;
+        margin-top: 0rem;
+    }
+
+    50.5% {
+        
+    }
+
+    51% {
+        
+    }
+
+    80% {
+        margin-top: 0rem;
+
+        
+    }
+
+    90% {
+        opacity: 1;
+        
+    }
+
+    100% {
+        opacity: 0;
+        width: 15rem;
+        margin-top: 5rem;
+    }
+}
+
+.whats-icon-container{
+    z-index: 2000;
+    width: 97%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: fixed;
+}
+.whats-fixed-icon{
+    width: 3rem;
+    margin-bottom: -72rem;
+    z-index: 2001;
+}
