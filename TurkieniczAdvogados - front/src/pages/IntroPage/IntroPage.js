@@ -5,15 +5,19 @@ import IntroSection4 from "./IntroSections/IntroSection4/IntroSection4";
 import "./StyledIntroPage.css";
 
 export default function IntroPage() {
-    /*
-    <IntroSection2/>
-                <IntroSection3/>
-                <IntroSection4/>
-                */
+
     return (
         <div id="intro-page">
             <IntroSection1 />
+            <IntroSection2 />
 
-        </div>
+            <div className="container">
+            <div className="container-text">Energia solar é economia garantida!</div>
+            </div>
+            
+            <IntroSection3/>
+            
+
+            </div>
     )
 }

@@ -1,71 +1,105 @@
 @import "../../../../StyledGlobalColor.css";
 
 #intro-section-2{
-    height: 40vw;
+    height: 38vw;
+    width: 100vw;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: rgb(179, 175, 175,0.5);
+    z-index: 10;
 }
 
-
-.title-container{
-    padding: 3vw;
-}
-
-.body-intro-section-2{
-    display: flex;
-}
-
-.middle_collumn{
-    width: 50%;
-    text-align: center;
-    display: flex;
-   justify-content: center;
-}
-
-.collumn1{
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.collumn2{
-    width: 25%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.middle_collumn-text{
-    width: 80%;
-
-}
-
-.area-box-section-2{
+.img-container-intro{
+    width:50%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 85%;
-    padding: 0.8rem 0;
-    gap: 0.8rem;
+
 }
 
-
-
-.area-box-section-2:hover{
-cursor: pointer;
-background-color: azure;
+.img-fachada{
+    width: 90%;
 }
 
-.img-icon-section-2{
-    width: 3rem;
+.text-container{
+    gap: 2rem;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    
+    
 }
 
-.img-text-section-2{
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: black;
+.title-text{
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--blue-strong);
+    letter-spacing: 0.2em;
+}
+
+.logo-img{
+    
+    margin-top: 1rem;
+    width: 30vw;
+}
+
+.text{
+    font-weight: 800;
+    line-height:1.5rem;
+}
+@media (max-width: 1000px) {
+
+    #intro-section-2{
+        margin-top: 2rem;
+        height: 48vw;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    #intro-section-2{
+        margin-top: 2rem;
+        height: 54vw;
+    }
+    .text{
+        font-size: 1.5vw;
+        line-height:1.5rem;
+    }
+
+    .text-container{
+        gap: 1rem;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    #intro-section-2{
+        margin-top: 2rem;
+        height: 56vw;
+    }
+    .text{
+        font-size: 1.5vw;
+        line-height:1rem;
+    }
+
+    .img-container-intro{
+        width:60%;
+    }
+}
+
+@media (max-width: 400px) {
+    .btn-rigth-container{
+        font-size: 2vw;
+    }
+    .img-container-intro{
+        width:50%;
+    }
+
+    .text{
+        
+        line-height:0.5rem;
+    }
 }

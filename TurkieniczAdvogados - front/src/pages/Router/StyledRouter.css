@@ -3,7 +3,7 @@
 
     .menu {
         position: fixed;
-        background-color: rgb(14, 23, 52);
+        background-color: white;
         width: 250px;
         height: 100vh;
         margin-top: 4px;
@@ -15,7 +15,7 @@
 }
 
 .splash-screm {
-    background-color: rgb(14, 23, 52);
+    background-color: white;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -75,6 +75,6 @@
 }
 .whats-fixed-icon{
     width: 3rem;
-    margin-bottom: -72rem;
+    margin-bottom:-95vh;
     z-index: 2001;
 }

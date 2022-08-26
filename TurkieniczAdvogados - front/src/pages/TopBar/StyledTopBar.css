@@ -2,7 +2,7 @@
 
 .top-bar-container {
     z-index: 100;
-    background-color: rgb(14, 23, 52);
+    background-color: white;
     width: 100%;
     position: fixed;
     height: 90px;
@@ -44,20 +44,21 @@
 
 .logo {
     cursor: pointer;
-    max-height: 100%;
+    height: 50%;
+    
 }
 
 .nav-container {
     height: 100%;
     width: 75.8vh;
-    padding-left: 10vw;
+    padding-left: 3vw;
 }
 
 .nav-section {
     height: 100%;
     width: 100%;
     display: flex;
-    margin-left: 0vw;
+    margin-left: 6vw;
     font-size: medium;
     font-weight: 600;
     color: #151515;
@@ -69,19 +70,20 @@
     height: 100%;
     list-style-type: none;
     margin-top: -0.1vw;
-    color: black;
+    color: rgb(51, 53, 51);
 }
 
 .nav-button {
     display: flex;
     align-items: center;
     transition: 1s all ease;
-    padding: 0 35px;
-    color: white;
+    padding: 0 20px;
 }
 
 .nav-button:hover {
     box-shadow: 0 0 40px 40px var(--box-shadow) inset;
+    color:var(--blue-strong);
+    
 }
 
 .cart-container {
@@ -129,7 +131,7 @@
     }
 
     .nav-button {
-        padding: 0 23px;
+        padding: 0 15px;
     }
 
     .cart-container {
@@ -206,7 +208,7 @@
     .nav-menu-container {
         background-color: white;
         margin-top: 13vh;
-        margin-left: -45vh;
+        margin-left: -55vh;
         width: 320px;
         height: 90vh;
         display: flex;
@@ -217,7 +219,7 @@
         visibility: visible;
         background-color: white;
         margin-top: 13vh;
-        margin-left: -95vh;
+        margin-left: -109vh;
         width: 320px;
         height: 90vh;
         display: flex;
@@ -239,8 +241,14 @@
     }
 
     .nav-button {
-        width: 100%;
+        width: 14rem;
         padding: 1rem 3rem;
+    }
+
+    .nav-button:hover {
+        box-shadow: 0 0 40px 40px var(--box-shadow) inset;
+        color:var(--blue-strong);
+        
     }
 
     .cart-container {
@@ -275,3 +283,59 @@
     }
 
 }
+
+@media (max-width: 900px) {
+
+.nav-menu-container {
+    background-color: white;
+    margin-top: 13vh;
+    margin-left: -52vh;
+    width: 320px;
+    height: 90vh;
+    display: flex;
+    transition: 1s all ease;
+}
+
+}
+
+@media (max-width: 600px) {
+
+    .nav-menu-container {
+        background-color: white;
+        margin-top: 13vh;
+        margin-left: -52vh;
+        width: 320px;
+        height: 90vh;
+        display: flex;
+        transition: 1s all ease;
+    }
+
+    .lines {
+        display: inherit;
+        flex-direction: column;
+        height: 60%;
+        margin-left: 0rem;
+        margin-right: 2rem;
+        justify-content: center;
+        gap:0.5rem;
+    }
+    
+    }
+
+    @media (max-width: 400px) {
+        .logo {
+            cursor: pointer;
+            height: 2rem;
+            
+        }
+
+        .nav-menu-container {
+            background-color: white;
+            margin-top: 13vh;
+            margin-left: -40vh;
+            width: 320px;
+            height: 90vh;
+            display: flex;
+            transition: 1s all ease;
+        }
+     }

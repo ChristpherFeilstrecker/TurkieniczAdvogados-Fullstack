@@ -15,9 +15,9 @@ import iconInstaBlue from "../../images/icon_instagram_blue.png"
 import iconGoogleBlack from "../../images/icon_google_black.png"
 import iconGoogleBlue from "../../images/icon_google_blue.png"
 
-import iconLetterBlue from "../../images/icon-letter-blue.png"
-import iconPhoneBlue from "../../images/icon-phone-blue.png"
-import iconPointerBlue from "../../images/icon-pointer-blue.png"
+import iconLetterBlue from "../../images/icon-letter-black.png"
+import iconPhoneBlue from "../../images/icon-phone.png"
+import iconPointerBlue from "../../images/icon-pointer-black.png"
 
 import branca from "../../images/fotos_iniciais/detalhes/camisetabranca.jpg"
 import azul from "../../images/fotos_iniciais/detalhes/camisetaazul.jpg"
@@ -35,40 +35,42 @@ export default function DetailProductPage(props) {
     const params = window.location.search.substring(1).split('?');
     const products = data.allProducts.products
     const produtos = data.produtos
+    const parametros = data.parametros
     const newIndex = produtos && produtos.findIndex((i) => Number(params) === Number(i.fields.codigo_produto))
-    
+
     const index = products.findIndex((i) => Number(params) === Number(i.id))
     let [qtd, setQtd] = useState("1")
     const [alert, setAlert] = useState(false)
     const [message, setMessage] = useState("")
     const [imgIndex, setImgIndex] = useState(0)
 
-    const images=[branca,azul,vermelha]
-    const imgs=[{id:0, img:branca},{id:1, img:azul},{id:2, img:vermelha}]
 
-    const switchImgToLeft =(()=>{
-        if(imgIndex+1 === images.length){
+    const images = [branca, azul, vermelha]
+    const imgs = [{ id: 0, img: branca }, { id: 1, img: azul }, { id: 2, img: vermelha }]
+
+    const switchImgToLeft = (() => {
+        if (imgIndex + 1 === images.length) {
             setImgIndex(0)
 
-        }else{
-         setImgIndex(imgIndex+1)   
+        } else {
+            setImgIndex(imgIndex + 1)
         }
-        
+
     })
 
-    const switchImgToRigth =(()=>{
-        if(imgIndex === 0){
-            setImgIndex(images.length-1) 
+    const switchImgToRigth = (() => {
+        if (imgIndex === 0) {
+            setImgIndex(images.length - 1)
 
-        }else{
-         setImgIndex(imgIndex-1)   
+        } else {
+            setImgIndex(imgIndex - 1)
         }
 
     })
 
     const getProduct = (() => {
         const product = products[index]
-        const produto=produtos && produtos[newIndex]
+        const produto = produtos && produtos[newIndex]
 
         const addProductToCart = ((product) => {
 
@@ -117,47 +119,39 @@ export default function DetailProductPage(props) {
             }, 4000)
         }
 
-        const listImgs = imgs
-        .map((img) => {
-            return <div onClick={() => setImgIndex(img.id)} className="img-container">
-                <img className="mini-img" src={img.img} alt="produto" />
-            </div>    
-        })
+
 
         return <div>
             <div className="title-detail-products-page">Detalhes do produto</div>
             <div className="container-1-detail-products-page">
                 <div className="container-select-img">
-                <img onClick={() => switchImgToRigth()} className="arrow" src={arrowLeft} alt="car-icon" /> 
-                   <img className="image-product-sector-1" src={imgs[imgIndex].img} alt={produtos &&produto.fields.nome} />
-                   <img onClick={() => switchImgToLeft()} className="arrow" src={arrowRigth} alt="car-icon" /> 
+                    <img className="image-product-sector-1" src={`https://aggostini.com.br/media/${produtos && produto.fields.image}`} alt={produtos && produto.fields.nome} />
                 </div>
-                
+
                 <div className="box-1-detail-products-page">
-                    <div>{produtos && produto.fields.nome}</div>
+                    <strong>{produtos && produto.fields.nome}</strong>
                     <div>{produtos && produto.fields.descricao1}</div>
-                    <div>{produtos && produto.fields.descricao2}</div>
+                    <div className="sub-description">{produtos && produto.fields.descricao2}</div>
+
+                    <div className="container-btn-product-detail-page">
+
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div className="align-container">
+                <div className="btns-rigth-container">
+                    <div onClick={() => navigate(`/aggostini/produtos`)} className="btn-rigth-container-more">VOLTAR</div>
+                    <div className="btn-rigth-container">
+                        <a href={`https://api.whatsapp.com/send?phone=${parseFloat(parametros[0].whats)}&text=Olá! Gostária de solicitar um orçamento de ${produtos && produto.fields.nome}`}
+                            target="_blank">ORÇAMENTO</a>
+                    </div>
                 </div>
             </div>
-            <div className="container-btn-product-detail-page">
-                <div className="mini-img-container">
-                    {listImgs}  
-                </div>
-               <div className="btns-container-box">
-                  <div className="modal-quantiti-product">
-                    QUANTIDADE:
-                    <div className="modal-counter">
-                        <div onClick={() => subCount()} className="modal-counter-add">-</div>
-                        <div className="modal-counter-num">{qtd}</div>
-                        <div onClick={() => addCount()} className="modal-counter-add">+</div></div>
-                </div>
-                <div onClick={() => addProductToCart(product)} className="btn-product-sector-1">
-                    <div className="add-to-car-btn-text">Adicionar </div>
-                    <img className="icon-add-car-btn-sector-1" src={addCar} alt="car-icon" />
-                </div> 
-               </div>
-                
-            </div>
+
+
         </div>
     })
 
@@ -178,22 +172,28 @@ export default function DetailProductPage(props) {
                         <div className="rigth-box-title-contact-section-2">MIDIAS</div>
 
                         <div className="rigth-box-itens-contact-section-2">
-                            <div className="rigth-box-icon-contact-section-2">
-                                <img className="rigth-icon-contact-section-2" src={iconFacebookBlack} alt="facebook-icon" />
-                                <img className="rigth-sub-icon-contact-section-2" src={iconFacebookBlue} alt="facebook-icon" />
-                            </div>
-                            <div className="rigth-box-icon-contact-section-2">
-                                <img className="rigth-icon-contact-section-2" src={iconTwiterBlack} alt="twiter-icon" />
-                                <img className="rigth-sub-icon-contact-section-2" src={iconTwiterBlue} alt="twiter-icon" />
-                            </div>
-                            <div className="rigth-box-icon-contact-section-2">
-                                <img className="rigth-icon-contact-section-2" src={iconInstaBlack} alt="insta-icon" />
-                                <img className="rigth-sub-icon-contact-section-2" src={iconInstaBlue} alt="insta-icon" />
-                            </div>
-                            <div className="rigth-box-icon-contact-section-2">
-                                <img className="rigth-icon-contact-section-2" src={iconGoogleBlack} alt="google-icon" />
-                                <img className="rigth-sub-icon-contact-section-2" src={iconGoogleBlue} alt="google-icon" />
-                            </div>
+                        <a href="https://www.facebook.com/aggostini.hidraulica" target="_blank">
+                                <div className="rigth-box-icon-contact-section-2">
+                                    <img className="rigth-icon-contact-section-2" src={iconFacebookBlack} alt="facebook-icon-black" />
+                                    <img className="rigth-sub-icon-contact-section-2" src={iconFacebookBlue} alt="facebook-icon-blue" />
+                                </div>
+                            </a>
+
+
+                            <a href="https://www.instagram.com/aggostini/" target="_blank">
+                                <div className="rigth-box-icon-contact-section-2">
+                                    <img className="rigth-icon-contact-section-2" src={iconInstaBlack} alt="insta-icon" />
+                                    <img className="rigth-sub-icon-contact-section-2" src={iconInstaBlue} alt="insta-icon-blue" />
+                                </div>
+                            </a>
+
+
+                            <a href="https://www.google.com/maps/place/Comercial+e+Instaladora+Hidr%C3%A1ulica+Aggostini/@-29.7702434,-51.1318274,15z/data=!4m5!3m4!1s0x0:0xf5ad04197d8ebfe3!8m2!3d-29.7702439!4d-51.1318263" target="_blank">
+                                <div className="rigth-box-icon-contact-section-2">
+                                    <img className="rigth-icon-contact-section-2" src={iconGoogleBlack} alt="google-icon" />
+                                    <img className="rigth-sub-icon-contact-section-2" src={iconGoogleBlue} alt="google-icon-blue" />
+                                </div>
+                            </a>
 
                         </div>
                     </div>
@@ -201,21 +201,21 @@ export default function DetailProductPage(props) {
                         <div className="rigth-box-title-contact-section-2">TELEFONE</div>
                         <div className="rigth-box-itens-contact-section-2">
                             <img className="rigth-icon-contact-section-2" src={iconPhoneBlue} alt="letter-icon" />
-                            <div className="rigth-box-text-contact-section-2">51 99999-9999 | 9999-9999</div>
+                            <div className="rigth-box-text-contact-section-2">{parametros && parametros[0].celular} | {parametros && parametros[0].telefone}</div>
                         </div>
                     </div>
                     <div className="rigth-block-contact-section-2">
                         <div className="rigth-box-title-contact-section-2">E-MAIL</div>
                         <div className="rigth-box-itens-contact-section-2">
                             <img className="rigth-icon-contact-section-2" src={iconLetterBlue} alt="letter-icon" />
-                            <div className="rigth-box-text-contact-section-2">comercial@comercial.com.br</div>
+                            <div className="rigth-box-text-contact-section-2">{parametros && parametros[0].email}</div>
                         </div>
                     </div>
                     <div className="rigth-last-block-contact-section-2">
                         <div className="rigth-box-title-contact-section-2">ENDEREÇO</div>
                         <div className="rigth-box-edress-contact-section-2">
                             <img className="rigth-icon-contact-section-2" src={iconPointerBlue} alt="letter-icon" />
-                            <div className="rigth-box-text-edress-contact-section-2">Rua Avenida, Número, Cidade, RS, CEP 00000-000</div>
+                            <div className="rigth-box-text-edress-contact-section-2">{parametros && parametros[0].endereco}</div>
                         </div>
                     </div>
                 </div>

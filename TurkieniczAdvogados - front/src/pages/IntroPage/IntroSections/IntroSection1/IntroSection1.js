@@ -1,82 +1,116 @@
 import "./StyledIntroSection1.css";
-import img1 from "../../../../images/fotos_iniciais/carrossel/asa.jpg"
-import img2 from "../../../../images/fotos_iniciais/carrossel/escalada.jpg"
-import img3 from "../../../../images/fotos_iniciais/carrossel/paraquedas.jpg"
-import img4 from "../../../../images/fotos_iniciais/carrossel/trilha.jpg"
-import { useEffect, useState } from "react";
-
-import arrowLeft from "../../../../images/arrow-to-left.png"
-import arrowRigth from "../../../../images/arrow-to-rigth.png"
+import aquecedores from "../../../../images/intro/aquecedores.jpg"
+import solar from "../../../../images/intro/solar.jpg"
+import reparos from "../../../../images/intro/reparos.jpg"
+import pressurizadores from "../../../../images/intro/pressurizadores.jpg"
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import GlobalContext from "../../../../components/global/globalContext";
 
 export default function IntroSection1() {
+    const navigate = useNavigate();
+    const data = useContext(GlobalContext);
+    const parametros = data.parametros
+    const setSearch = data.setSearch
+    const setTitle = data.setTitle
+    const destaques = data.destaques
 
-    const [imgIndex, setImgIndex] = useState(0)
-    let efect = imgIndex.toString()
-    const imgs = [{ id: 0, img: img1, description: "Um bom desafio tem em si sua recompensa" },
-    { id: 1, img: img2, description: "Na estratégia, decisiva é a aplicação" },
-    { id: 2, img: img3, description: "A dedicação é fruto da persistência" },
-    { id: 3, img: img4, description: "Turkienicz Advogados Associados" }]
+    let dest1 =destaques && destaques[0]
+    let dest2 =destaques && destaques[1]
+    let dest3 =destaques && destaques[2]
+    let dest4 =destaques && destaques[3]
 
-    const switchImgToLeft = (() => {
-        if (imgIndex + 1 === imgs.length) {
-            setImgIndex(0)
 
-        } else {
-            setImgIndex(imgIndex + 1)
-        }
-
-    })
-
-    const switchImgToRigth = (() => {
-        if (imgIndex === 0) {
-            setImgIndex(imgIndex - 1)
-
-        } else {
-            setImgIndex(imgIndex - 1)
-        }
-
-    })
-
-    useEffect(() => {
-        console.log("entrou")
-        setTimeout(() => {
-            nextImage();
-        }, 5000)
-    }, [])
-
-    useEffect(() => {
-        console.log("entrou")
-        setTimeout(() => {
-            nextImage();
-        }, 5000)
-    }, [imgIndex])
-
-    function nextImage() {
-
-        if (imgIndex + 1 === imgs.length) {
-            setImgIndex(0)
-
-        } else {
-            setImgIndex(imgIndex + 1)
-        }
+    const setSearchFunction=(id,title)=>{
+        
+        setSearch(`${id}`)
+        navigate(`/aggostini/produtos`)
+        setTitle(title)
     }
 
-/*
-            <div className="arrow-container">
-                <img onClick={() => switchImgToRigth()} className="arrow" src={arrowLeft} alt="car-icon" />
-                <img onClick={() => switchImgToLeft()} className="arrow" src={arrowRigth} alt="car-icon" />
-            </div>
-            */
+
     return (
         <div id="intro-section-1">
-            <div className={"slide-container"}>
-                <img src={imgs[imgIndex].img} className="slide-img" alt="img1" />
 
+            <div className="body-intro-section-1">
+                <div>
+                <img className="img-intro-section-1" src={dest1 && dest1.image} alt="destaque1"/>
+                </div>
+                
+                <div className="body-rigth-container">
+                    
+                    <div className="title-rigth-container">{dest1 && dest1.titulo}</div>
+                    <div className="text-rigth-container">{dest1 && dest1.descricao}</div>
+                    <div className="btns-rigth-container">
+                     <div onClick={() => setSearchFunction(dest1 && dest1.categoria,"PRODUTOS")} className="btn-rigth-container-more">VER PRODUTOS</div>  
+                     <div  className="btn-rigth-container">
+                     <a href={`https://api.whatsapp.com/send?phone=${parseFloat(parametros && parametros[0].whats)}&text=Olá! Gostária de solicitar um orçamento de ${dest1 && dest1.titulo}.`}target="_blank">
+                        ORÇAMENTO
+                        </a>
+                            </div> 
+                    </div>
+                </div>
             </div>
-            <div className="text-container">
-                <div className={"description-text"+efect}>{imgs[imgIndex].description}</div>
+
+            <div className="body-intro-section-1">
+                <div>
+                <img className="img-intro-section-1" src={dest2 && dest2.image} alt="destaque1"/>
+                </div>
+                
+                <div className="body-rigth-container">
+                    
+                    <div className="title-rigth-container">{dest2 && dest2.titulo}</div>
+                    <div className="text-rigth-container">{dest2 && dest2.descricao}</div>
+                    <div className="btns-rigth-container">
+                     <div onClick={() => setSearchFunction(dest2 && dest2.categoria,"PRODUTOS")} className="btn-rigth-container-more">VER PRODUTOS</div>  
+                     <div  className="btn-rigth-container">
+                     <a href={`https://api.whatsapp.com/send?phone=${parseFloat(parametros && parametros[0].whats)}&text=Olá! Gostária de solicitar um orçamento de ${dest2 && dest2.titulo}.`}target="_blank">
+                        ORÇAMENTO
+                        </a>
+                            </div> 
+                    </div>
+                </div>
             </div>
-            
+
+            <div className="body-intro-section-1">
+                <div>
+                <img className="img-intro-section-1" src={dest3 && dest3.image} alt="destaque1"/>
+                </div>
+                
+                <div className="body-rigth-container">
+                    
+                    <div className="title-rigth-container">{dest3 && dest3.titulo}</div>
+                    <div className="text-rigth-container">{dest3 && dest3.descricao}</div>
+                    <div className="btns-rigth-container">
+                     <div onClick={() => setSearchFunction(dest3 && dest3.categoria,"PRODUTOS")} className="btn-rigth-container-more">VER PRODUTOS</div>  
+                     <div  className="btn-rigth-container">
+                     <a href={`https://api.whatsapp.com/send?phone=${parseFloat(parametros && parametros[0].whats)}&text=Olá! Gostária de solicitar um orçamento de ${dest3 && dest3.titulo}.`}target="_blank">
+                        ORÇAMENTO
+                        </a>
+                            </div> 
+                    </div>
+                </div>
+            </div>
+
+            <div className="body-intro-section-1">
+                <div>
+                <img className="img-intro-section-1" src={dest4 && dest4.image} alt="destaque1"/>
+                </div>
+                
+                <div className="body-rigth-container">
+                    
+                    <div className="title-rigth-container">{dest4 && dest4.titulo}</div>
+                    <div className="text-rigth-container">{dest4 && dest4.descricao}</div>
+                    <div className="btns-rigth-container">
+                     <div onClick={() => setSearchFunction(dest4 && dest4.categoria,"PRODUTOS")} className="btn-rigth-container-more">VER PRODUTOS</div>  
+                     <div  className="btn-rigth-container">
+                     <a href={`https://api.whatsapp.com/send?phone=${parseFloat(parametros && parametros[0].whats)}&text=Olá! Gostária de solicitar um orçamento de ${dest4 && dest4.titulo}.`}target="_blank">
+                        ORÇAMENTO
+                        </a>
+                            </div> 
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

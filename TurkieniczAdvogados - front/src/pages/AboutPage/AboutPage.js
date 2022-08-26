@@ -7,7 +7,11 @@ export default function AboutPage() {
  
     return (
 <div className="aboutPage">
+<div className="container-about-page margin-top">
+            <strong className="container-text-about-page">Energia solar é economia garantida!</strong>
+            </div>
     
+    <AboutSection2/>
 </div>
     )
 }

@@ -1,134 +1,211 @@
 @import "../../../../StyledGlobalColor.css";
-@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@1,500&family=Libre+Baskerville&family=Roboto:wght@100;300&display=swap');
 
 #intro-section-1 {
-    padding-top: 5rem;
-    height: 46vw;
+   padding-top: 5rem;
+    height: 40vw;
     display: flex;
     justify-content: center;
-    align-items: center;
+    position: relative;
     overflow: hidden;
-    background-color: rgba(152, 245, 203, 0.2);
+     background-color: rgba(152, 245, 203, 0.2);
+}
+.body-intro-section-1{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    animation: slide 24s infinite;
+    justify-content: center;
+    z-index: 9; 
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(233, 253, 244);
+}
+
+.img-intro-section-1{
+    max-width:40vw;
+    box-shadow: 10px 5px 5px black;
+}
+
+@keyframes slide {
+    1%{
+        z-index: 1;
+        
+       
+    }
+    10%{
+        z-index: 10;
+        opacity: 1;
+        
+    }
+    30%{
+        opacity: 1;
+        
+    }
+   
+    35%{
+        opacity: 0;
+        z-index: 10;
+    }
+    36%{
+        z-index: 0;
+    }
+    100%{
+        z-index: 0;
+    }
+}
+
+
+.body-intro-section-1:nth-child(2){
+    animation-delay: 6s;
     
 }
+.body-intro-section-1:nth-child(3){
+    animation-delay: 12s;
 
+}
+.body-intro-section-1:nth-child(4){
+    animation-delay: 18s;
 
-.slide-container {
-    width: 100vw;
 }
 
-.slide-img {
-    width: 100vw;
-    height: 46vw;
+.img-slide{
+width: 80%;
+}
+
+.body-rigth-container{
+    width: 50%;
+    height: 100%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.text-container {
+.title-rigth-container{
+    font-size: 2vw;
+    font-weight:800;
+    color: white;
+    text-shadow: 0.1em 0.1em 0.2em black
+}
+
+.text-rigth-container{
+    font-size: 3vw;
+    color:white;
+    text-shadow: 0.1em 0.1em 0.2em rgb(11, 11, 11);
+    width: 45vw;
+    text-align: center;
+    background-color: rgba(97, 97, 99, 0.5);
+}
+
+.btns-rigth-container{
+    margin-top: 2vw;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
     width: 100%;
-    position: absolute;
-    padding-left: 7rem;
+}
+
+.btn-rigth-container-more{
     display: flex;
-    overflow: hidden;
-}
-
-
-
-.description-text0 {
-    width: 30%;
-    padding: 1rem;
-    background-color: rgb(86, 86, 88, 0.5);
-    color: white;
-    font-size: 3rem;
-    font-family: 'Ibarra Real Nova', serif;
-    text-align: center;
-    animation: slide0 1s;
-}
-
-.description-text1 {
-    width: 30%;
-    padding: 1rem;
-    background-color: rgb(86, 86, 88, 0.5);
-    color: white;
-    font-size: 3rem;
-    text-align: center;
-    margin-left: 60%;
-    animation: slide1 1s;
-    font-family: 'Ibarra Real Nova', serif;
-}
-
-.description-text2 {
-    width: 30%;
-    padding: 1rem;
-    background-color: rgb(86, 86, 88, 0.5);
-    color: white;
-    font-size: 3rem;
-    text-align: center;
-    animation: slide2 1s;
-    font-family: 'Ibarra Real Nova', serif;
-}
-
-.description-text3 {
-    width: 30%;
-    padding: 1rem;
-    margin-left: 60%;
-    background-color: rgb(86, 86, 88, 0.5);
-    color: white;
-    font-size: 3rem;
-    text-align: center;
-    animation: slide3 1s;
-    font-family: 'Libre Baskerville', serif;
-}
-
-@keyframes slide0 {
-    0%{
-        opacity: 0;
-        margin-top: -3rem;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-@keyframes slide1 {
-    0%{
-        opacity: 0;
-        margin-top: -3rem;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-@keyframes slide2 {
-    0%{
-        opacity: 0;
-        margin-top: -3rem;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-@keyframes slide3 {
-    0%{
-        opacity: 0;
-        margin-top: -3rem;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-
-.arrow {
-    width: 1.5rem;
+    align-items: center;
+    font-size: 0.8rem;
+    background-image: linear-gradient(rgb(181, 173, 173), rgb(249, 249, 246));
+    padding: 0.6rem 1.5rem;
+    color: rgb(106, 102, 102);
+    font-weight: 600;
     cursor: pointer;
+    transition: 2s;
+    border-width: 0.4px;
+    border-style: solid;
+    border-color: white;
+}
+
+.btn-rigth-container-more:hover{
+    background-image: linear-gradient(rgb(249, 249, 246) , rgb(142, 138, 138));
+}
+
+.btn-rigth-container{
+    
+    font-size: 0.8rem;
+    background-color: var(--blue-strong);
+    padding:  0.6rem 1.5rem;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    border-width: 0.4px;
+    border-style: solid;
+    border-color: white;
+    z-index: 2;
+}
+
+.btn-rigth-container:hover{
+    background-color: var(--blue-weak);
+}
+
+@media (max-width: 1000px) {
+    .title-rigth-container{
+        
+    }
+}
+
+@media (max-width: 720px) {
+    .body-intro-section-1{
+       flex-direction: column;
+    }
+
+    #intro-section-1 {
+        padding-top: 9rem;
+         height: 48vw;
+         display: flex;
+         justify-content: center;
+         position: relative;
+         overflow: hidden;
+          background-color: rgba(152, 245, 203, 0.2);
+     }
+
+     .body-intro-section-1{
+        width: 100%;
+        height: 60%;
+        display: flex;
+        position: absolute;
+        opacity: 0;
+        animation: slide 24s infinite;
+        justify-content: center;
+        z-index: 9; 
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+    .body-rigth-container{
+        width: 100vw;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .btns-rigth-container{
+        margin-top: 2vw;
+        display: flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3vw;
+        width: 100vw;
+    }
+
 
 }
 
-.arrow-container {
-    width: 90vw;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
+@media (max-width: 500px) {
+    #intro-section-1 {
+         height: 48vw;
+    }
 }

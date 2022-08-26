@@ -7,6 +7,7 @@ export default function ContactPage() {
     return (
 <div className="contact-page">
     
+    <ContactSection2/>
     
 </div>
     )

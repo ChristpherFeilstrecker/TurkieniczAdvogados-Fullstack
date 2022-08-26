@@ -7,13 +7,19 @@ import SubSection3About2 from "./SubSectionAbout2/SubSection3About2";
 import arrow from "../../../../images/arrow.png"
 
 
+
 export default function AboutSection2() {
     let navigate = useNavigate();
+
+    const navigateTo=()=>{
+        navigate(`/aggostini/contato`)
+        window.scrollTo(0, 0)
+        
+    }
+
     return (
         <div id="about-section-2">
-            <div className="header-container-about-section-2">
-                <div className="header-text-about-section-2"><div onClick={() => navigate(`/`)} className="nav-word-header-about-section-2">INÍCIO</div> <img className="arrow-section-2" src={arrow} alt="arrow" /> QUEM SOMOS</div>
-            </div>
+           
             <div className="body-container-about-section-2">
 
                 <Routes id="routes" className="routes-container-about-section-2">
@@ -25,7 +31,7 @@ export default function AboutSection2() {
 
                 <div className="rigth-container-about-section-2">
                     <div className="title-rigth-container-about-section-2">
-                        <div data-aos="fade-left" className="title-rigth-about-section-2">30+ Anos De Experiência</div>
+                        <div data-aos="fade-left" className="title-rigth-about-section-2">Mais de três décadas de experiência</div>
                     </div>
                     <ul data-aos="fade" className="nav-container-rigth-about-section-2">
                         <li onClick={() => navigate(``)} className="nav-button-container-about-section-2" href="">
@@ -39,7 +45,7 @@ export default function AboutSection2() {
                         </li>
                     </ul>
                     <div data-aos="fade" className="button-container-rigth-about-section-2">
-                        <div onClick={() => navigate(`/aggostini/contato`)} className="button-rigth-about-section-2">CONTATO</div>
+                        <div onClick={() => navigateTo()} className="button-rigth-about-section-2">CONTATO</div>
                     </div>
                 </div>
             </div>

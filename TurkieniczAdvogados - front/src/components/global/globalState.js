@@ -1,26 +1,29 @@
 import { useEffect, useState } from "react";
 import GlobalContext from "./globalContext";
+import caneca from "../../images/fotos/Canecas e Squeezes/Caneca Capuccino_CC10017-ok.jpg"
+import botton from "../../images/fotos/Bottons e Pins/Bottons - Diversas Personalizacoes_BT7001-ok.jpg"
+import chaveiros from "../../images/fotos/Chaveiros/Chaveiro Couro Costurado_cc5003-ok.jpg"
+import cracha from "../../images/fotos/Cordoes para Crachas e Acessorios/Cracha Plastico_cp2003-ok.jpg"
+import adesivo from "../../images/fotos/Escritorio/Adesivo Escovado_AE30005-ok.jpg"
 import useRequestData from "../hooks/useRequestData";
 import { BASE_URL } from "../constants/BaseURL";
 
-import civil from "../../images/fotos/civil.png"
-import previdenciario from "../../images/fotos/previdenciario.png"
-import bancario from "../../images/fotos/bancario.png"
-import criminal from "../../images/fotos/criminal.png"
-import internacional from "../../images/fotos/internacional.png"
-import ambiental from "../../images/fotos/ambiental.png"
-import portuario from "../../images/fotos/portuario.png"
-import marca from "../../images/fotos/marca.png"
-import empresarial from "../../images/fotos/empresarial.png"
-import trabalhista from "../../images/fotos/trabalhista.png"
-
 export default function GlobalState(props) {
     const [cart, setCart] = useState([])
+    let [search, setSearch] = useState("TODOS PRODUTOS");
+    let [title, setTitle] = useState("TODOS PRODUTOS");
 
 const galerias = useRequestData(BASE_URL+"/galerias/")
 const parametros = useRequestData(BASE_URL+"/parametros/")
+const destaques = useRequestData(BASE_URL+"/destaques/")
+
 const json = useRequestData(BASE_URL+"/produto/")
 const produtos = json && JSON.parse(json)
+
+const json2 = useRequestData(BASE_URL+"/assistenciasprodutos/")
+const assistenciaProdutos = json2 && JSON.parse(json2)
+
+const assistencia = useRequestData(BASE_URL+"/assistencias/")
 
     const removeFromCart = (item) => {
         const index = cart.findIndex((i) => item.id === i.id)
@@ -54,72 +57,18 @@ const produtos = json && JSON.parse(json)
 
     })
 
-    let areas = [
+    let allProducts = {
+        products: [
             {
-                id: 1,
-                nome: "CÍVEL",
-                descricao: "Cível descrição",
-                imagem: civil,
-            },
-            {
-                id: 2,
-                nome: "PREVIDENCIÁRIA",
-                descricao: "previdenciario descrição",
-                imagem: previdenciario,
-            },
-            {
-                id: 3,
-                nome: "BANCÁRIA",
-                descricao: "Bancario descrição",
-                imagem: bancario,
-            },
-            {
-                id: 4,
-                nome: "CRIMINAL",
-                descricao: "Criminal descrição",
-                imagem: criminal,
-            },
-            {
-                id: 5,
-                nome: "INTERNACIONAL",
-                descricao: "Internacional Descrição",
-                imagem: internacional,
-            }
-            ,
-            {
-                id: 6,
-                nome: "AMBIENTAL",
-                descricao: "Ambiental Descrição",
-                imagem: ambiental,
-            }
-            ,
-            {
-                id: 7,
-                nome: "ADVOCACIA PORTUÁRIA",
-                descricao: "Advocacio Portuária descrição",
-                imagem: portuario,
-            }
-            ,
-            {
-                id:8,
-                nome: "MARCAS E PATENTES",
-                descricao: "Marcas e Patentes descrição",
-                imagem: marca,
-            },
-            {
-                id:9,
-                nome: "EMPRESARIAL",
-                descricao: "Empresarial descrição",
-                imagem: empresarial,
-            },
-            {
-                id:10,
-                nome: "TRABALHISTA",
-                descricao: "Trabalhista descrição",
-                imagem: trabalhista,
+                id: "001",
+                nome: "Bottons",
+                descricao: "Diversas pesonalizações",
+                imagem: botton,
+                referencia: "cc 17001",
+
             }
         ]
-    
+    }
 
     useEffect(() => {
         const data = localStorage.getItem('cart')
@@ -139,10 +88,17 @@ const produtos = json && JSON.parse(json)
         removeFromCart,
         addCountProduct,
         removeCountProduct,
+        allProducts,
         galerias,
         parametros,
         produtos,
-        areas
+        assistenciaProdutos,
+        assistencia,
+        search, 
+        setSearch,
+        title,
+        setTitle,
+        destaques
     }
 
     return (<GlobalContext.Provider value={data}>
