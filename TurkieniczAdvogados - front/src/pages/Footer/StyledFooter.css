@@ -1,158 +1,167 @@
 #footer{
-    color: #070707;
-    font-weight: 400;
-    background-image: url("../../images/azultextura.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 32vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-.tag-a{
-    text-decoration:none;
-    font-size: 0.8rem;
-    color:black
-}
-
-.tag-a:hover{
-color:rgb(107, 107, 175)
-}
-
-.footer-container1{
-    width: 80%;
-    height: 70%;
-    display: flex;
-    align-items:center;
-}
-
-.footer-colum1{
-    gap:3rem;
-    padding: 0 2rem 0 0;
-
-}
-.footer-colum2{
-    height: 70%;
-    gap:2rem;
-    padding: 0 2rem ;
+    color: #767779;
+    background-color: rgb(59, 59, 59);
+    height: 20rem;
     display: flex;
     align-items: center;
-
+    justify-content: space-between;
 }
 
-.footer-colum3{
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-direction: column;
-    text-align: end;
+.footer-container-left{
+    width: 100%;
+    height: 100%;
 }
 
-.footer-container-phone{
+
+
+.footer-collumn-top{
+    width: 95%;
+    height: 45%;
+    margin: 0 2vw ;
+    border-bottom: 10px solid;
+  border-image-slice: 1;
+  border-width: 3px;
+    border-image-source: linear-gradient(to left, rgb(237, 198, 109), rgb(237, 198, 109), rgb(248, 243, 226), rgb(237, 198, 109), rgb(237, 198, 109));
     display: flex;
     align-items: center;
-    padding: 0.5rem 0;
-    gap: 0.5rem;
+    justify-content: space-between;
+    
 }
 
-.footer-icon{
-width: 1rem;
-height: 1rem;
-color: black;
-}
-
-.footer-detail-text{
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.logo-footer{
-width: 15vw;
-padding-bottom: 0.5rem;
-}
-
-.footer-logo-text{
+.footer-collumn-bottom{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
     color: black;
 }
 
-.footer-container2{
-    width: 100%;
-    height: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-width:2px;
-    border-top-style: solid;
-    border-top-color:rgb(66, 64, 64,0.5);
+.footer-title, .footer-text{
+    background-image: linear-gradient(to left, rgb(237, 198, 109), rgb(248, 243, 226), rgb(237, 198, 109));
+  
+  /* Segundo passo: apagar do fundo tudo que não estiver imediatamente atrás de texto */
+  background-clip: text;
+  -webkit-background-clip: text; /* Alguns navegadores precisam do prefixo */
 
+  /* Terceiro passo: apagar o texto, deixando apenas o fundo atrás dele */
+  -webkit-text-fill-color: transparent;
+
+  /* Cor que contraste com o degradê, caso o navegador não suporte `background-clip: text` */
+  color: black;
 }
 
-.footer-detail-container2{
-    width: 80%;
-}
-
-
-
-.border-left{
-    border-left-width:2px;
-    border-left-style: solid;
-    border-left-color:rgb(66, 64, 64,0.5);
-}
-
-.footer-colum1-2-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-@media (max-width: 1000px) {
-
-    .footer-colum1-2-container{
-        flex-direction: column;
-        align-items: flex-start;
-        width: 50%;
-    }
-
-    .border-left{
-        border-left-width:0px;
-    }
-
-    .footer-colum2{   
-        padding: 0 0rem ;
-    }
-
-    .footer-colum3{
-        width: 40%;
-    }  
+.logo-container{
+    padding-left: 1.5vw;
     
-    .footer-container1{
-
-        align-items:center;
-        justify-content: space-between;
-    }
+}
+.logo-footer{
+    width: 18vw;
+    
 }
 
-@media (max-width: 500px) {
-    #footer{
+.icon-footer{
+    max-width: 4vw;
+    margin-left: 1rem;
+}
+
+.icon-midia-footer{
+    max-width: 4vw;
+    margin-left: 1rem;
+}
+
+.footer-title-top{
+    color: black;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+.footer-conteiner-top{
+    width: 100%;
+}
+
+.footer-conteiner-title-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+    
+}
+
+.left-conteiner-icons, .footer-conteiner-icons{
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.footer-conteiner-icons-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2vw;
+    
+}
+
+.footer-collumn-left-bottom{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+}
+
+.footer-collumn-rigth-bottom{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+@media (max-width: 560px) {
+.icon-container-midia-footer{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+}
+
+@media (max-width: 420px) {
+    .logo-footer{
+    width: 30vw;
+    
+}
+
+.icon-midia-footer{
+    max-width: 6vw;
+    margin-left: 1rem;
+    
+}
+
+.footer-conteiner-icons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:1rem;
+    
+}
+
+.icon-footer{
+    max-width: 6vw;
+    margin-left: 1rem;
+}
+
+}
+
+@media (max-width: 300px) {
+    .footer-conteiner-icons{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap:0.3rem;
         
-        height: 38vh;
-       
     }
 
-    .footer-container1{
-        width: 90%;
-        height: 100%;
-        display: flex;
-        align-items:center;
-    }
-
-    .footer-colum3{
-        font-size: 0.7rem;
-    }  
-
-    .footer-detail-text{
-        font-size: 0.7rem;
+    .footer-text, .footer-title{
+font-size: 5vw;
     }
 }

@@ -13,10 +13,7 @@ const useRequestData = (url) => {
                 setData(response.data);
             })
             .catch((error) => {
-                console.log("Erro de data = ",error.response.data);
-                console.log("Erro de status = ",error.response.status);
-                console.log("Erro de data = ",error.response.headers);
-                console.log("erro = ", error)
+                console.log("erro", error)
             });
     }, [url]);
 

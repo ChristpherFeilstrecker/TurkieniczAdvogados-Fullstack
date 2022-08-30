@@ -1,10 +1,17 @@
 import "./StyledFooter.css";
-import iconPhone from "../../images/icon-phone.png"
-import iconEmail from "../../images/icon-letter-black.png"
-import logo from "../../images/logo.png"
-import pointer from "../../images/icon-pointer-black.png"
+import aca from "../../images/aca-icon.png"
+import csa from "../../images/csa-icon.png"
+import cla from "../../images/cla-icon.png"
+import hkc from "../../images/hkc-icon.png"
+import iacc from "../../images/iacc-icon.png"
+import narca from "../../images/narca-icon.png"
+import twiter from "../../images/icon_twiter_cinza.png"
+import insta from "../../images/icon_insta_cinza.png"
+import face from "../../images/icon_face_cinza.png"
+
 import { useContext } from "react";
 import GlobalContext from "../../components/global/globalContext";
+import logo from "../../images/pclogo.jpg"
 
 export default function Footer() {
     const data = useContext(GlobalContext);
@@ -13,47 +20,52 @@ export default function Footer() {
     return (
         <div id="footer">
 
-            <div className="footer-container1">
-<div className="footer-colum1-2-container">
-    <div className="footer-colum1">
-                    <div className="footer-container-phone">
-                        <img className="footer-icon" src={iconPhone} alt="icon-phone" />
-                        <div className="footer-detail-text">{parametros && parametros[0].celular} | {parametros && parametros[0].telefone}</div>
-                    </div>
-                    <div className="footer-container-phone">
-                        <img className="footer-icon" src={iconEmail} alt="icon-phone" />
-                        <div className="footer-detail-text">{parametros && parametros[0].email}</div>
-                    </div>
-                    
+            <div className="footer-container-left">
+                <div className="footer-collumn-top">
+                    <div className="footer-conteiner-top">
 
+                        <div className="footer-conteiner-icons-top">
+                            <div className="left-conteiner-icons">
+                                <div className="logo-container">
+                                    <img className="logo-footer" src={logo} alt="logo" />
+                                </div>
+
+                                <div className="footer-conteiner-icons">
+
+                                    <img className="icon-footer" src={aca} alt="logo" />
+                                    <img className="icon-footer" src={csa} alt="logo" />
+                                    <img className="icon-footer" src={cla} alt="logo" />
+                                    <img className="icon-footer" src={hkc} alt="logo" />
+                                    <img className="icon-footer" src={iacc} alt="logo" />
+                                    <img className="icon-footer" src={narca} alt="logo" />
+                                    
+                                </div>
+                            </div>
+                            <div className="icon-container-midia-footer">
+                                <img className="icon-midia-footer" src={twiter} alt="logo" />
+                                <img className="icon-midia-footer" src={insta} alt="logo" />
+                                <img className="icon-midia-footer" src={face} alt="logo" />
+                               
+                            </div>
+                        </div>
+
+
+
+                    </div>
 
                 </div>
-                <div className="footer-colum2 border-left">
-<div className="footer-container-phone ">
-                        <img className="footer-icon" src={pointer} alt="icon-phone" />
-                        <div className="footer-detail-text">{parametros && parametros[0].endereco}</div>
+                <div className="footer-collumn-bottom">
+                    <div className="footer-collumn-left-bottom">
+                        <div className="footer-title"> NOVO HAMBURGO</div>
+                        <div className="footer-text"> Rua Vereador Adão Rodrigues de Oliveira, 206, </div>
+                        <div className="footer-text"> Bairro Ideal - Novo Hamburgo</div>
+                        <div className="footer-text"> Rio Grande do Sul - Brasil - CEP.93.334-290</div>
                     </div>
-                </div>
-</div>
-                
-
-                <div className="footer-colum3">
-                <img className="logo-footer" src={logo} alt="aggostini" />
-                    <div className="footer-logo-text">Mão de obra para instalação e
-assistência técnica autorizada própria.</div>
-
                 </div>
             </div>
 
-            <div className="footer-container2">
-                <div className="footer-detail-container2">
-                
-                         <div className="footer-detail-text">COPYRIGHT AGGOSTINI 2022. TODOS OS DIREITOS RESERVADOS</div>
-       
-                </div>
-           <a href="https://www.linkedin.com/in/christopher-feilstrecker/" target="_blank" className="tag-a">DEVELOPED BY CFS</a>
 
-            </div>
+
         </div>
     )
 }

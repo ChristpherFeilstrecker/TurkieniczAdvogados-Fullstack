@@ -9,15 +9,17 @@
     overflow: hidden;
 }
 
-.img-background-about-section-1-container{
+.background-about-section-1-container{
     display: flex;
     align-items: center;
     justify-content:center ;
     z-index: 10;
     width: 120%;
     height: 140%;
-    margin-top: -8vw;
-    background-image: url("../../../../images/new-york-1920x500.jpg");
+    margin-top: -15vw;
+    background-image: url("../../../../images/quemsomos.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     animation: movement 40s infinite;
 }
 
@@ -44,6 +46,7 @@
     font-size: 4vw;
     color: white;
     font-family: "Helvetica Neue";
+    text-shadow: 0.1em 0.1em 0.2em black
 }
 
 @media (max-width: 1500px) {

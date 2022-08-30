@@ -1,0 +1,136 @@
+.body-ActingPage {
+    padding-top: 120px;
+}
+
+.body-ActingPage {
+    height: 850px;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    background-image: url("../../images/back-acting-page.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-left: 4rem;
+}
+
+.buttons-ActingPage {
+    background-color: rgb(112, 111, 109, 0.5);
+
+}
+
+.area-box-ActingPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30vw;
+    padding: 0.8rem 0;
+    gap: 0.8rem;
+    cursor: pointer;
+
+}
+
+.area-box-ActingPage:hover {
+    background-color: azure;
+}
+
+.img-icon-ActingPage {
+    width: 3vw;
+}
+
+.img-text-ActingPage {
+    font-size: 2vw;
+    font-weight: 600;
+    color: black;
+}
+
+.container-initial-text {
+    width: 20vw;
+    margin-left: 4%;
+    text-align: center;
+    text-shadow: 0.2em 0.2em 0.2em black;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.initial-text {
+    font-size: 4vw;
+}
+
+.container-acting-text{
+    background-color: rgba(55, 56, 56, 0.7);
+    width: 70%;
+    margin-left: 10%;
+    padding: 2rem;
+    text-align: center;
+    text-shadow: 0.1em 0.1em 0.2em black;
+    font-family: 'PT Sans Narrow', sans-serif;
+}   
+
+.acting-title{
+    font-size: 2vw;
+}
+
+.acting-text{
+    font-size: 1.5vw;
+}
+
+@media (max-width: 1000px) {
+    .body-ActingPage {
+        height: 85vw;
+    }
+}
+
+@media (max-width: 780px) {
+    .body-ActingPage {
+        height: 105vw;
+    }
+}
+
+@media (max-width: 530px) {
+    .body-ActingPage {
+        height: 135vw;
+    }
+
+    .container-acting-text{
+        background-color: rgba(55, 56, 56, 0.7);
+        width: 80%;
+        margin-left: 10%;
+        padding: 2rem;
+        text-align: center;
+        text-shadow: 0.2em 0.1em 0.2em black;
+        font-family: 'PT Sans Narrow', sans-serif;
+    } 
+
+    .acting-title{
+        font-size: 3vw;
+    }
+    
+    .acting-text{
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 430px) {
+    .body-ActingPage {
+        padding-left: 1rem;
+        height: 155vw;
+    }
+
+}
+
+@media (max-width: 330px) {
+    .body-ActingPage {
+        padding-left: 1rem;
+        height: 175vw;
+    }
+
+}
+
+@media (max-width: 270px) {
+    .body-ActingPage {
+        padding-left: 1rem;
+        height: 195vw;
+    }
+
+}

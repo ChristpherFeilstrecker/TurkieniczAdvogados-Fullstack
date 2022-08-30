@@ -4,24 +4,21 @@ import "./StyledRouter.css";
 import TopBar from '../TopBar/TopBar'
 import Footer from '../Footer/Footer';
 import IntroPage from '../IntroPage/IntroPage'
-import ProductsPage from '../Products/ProductsPage';
+import ActingPage from '../ActingPage/ActingPage'
 import AboutPage from '../AboutPage/AboutPage'
-import AssistancePage from '../AssistancePage/AssistancePage'
-import ContactPage from '../ContactPage/ContactPage'
+import AssistancePage from '../VideosPage/VideosPage'
+import QueryPage from '../QueryPage/QueryPage';
 import CartPage from '../CartPage/CartPage'
 import ErrorPage from '../ErrorPage/ErrorPage'
-import DetailProductPage from '../DetailProductPage/DetailProductPage';
-import logo from '../../images/logo.png';
+import logo from '../../images/pclogo.jpg';
 import iconWhats from '../../images/whatsapp-fixed.png';
 
 export const Router = () => {
   const [splash, setSplash] = useState(false)
   let [productID, setProductID] = useState('001')
 
-  
-
 useEffect(()=>{
-  setSplash(true)
+  setSplash(false)
   setTimeout(()=>{
     setSplash(false)
   },4000)
@@ -30,24 +27,23 @@ useEffect(()=>{
   return (
 <div>
   {splash?
-  <div className='splash-screm'><img className="image-splash" src={logo} alt="caneca" /></div>
+  <div className='splash-screm'><img className="image-splash" src={logo} alt="logo" /></div>
     :
     <BrowserRouter className="page">
       <div className='whats-icon-container'>
-      <a href="https://api.whatsapp.com/send?phone=5551996829993&text=Olá! Gostária de solicitar um orçamento"
-    target="_blank">
+      <a href="https://api.whatsapp.com/send?phone=5551999999999&text=Olá! Gostária de solicitar um serviço"
+    target="_blank" rel="noreferrer">
       <img className="whats-fixed-icon" src={iconWhats} alt="icon-whats"/>
     </a>       
       </div>
       <TopBar/>
       <Routes id="routes">
         <Route exact path={"/"} element={<IntroPage />} />
-        <Route exact path={"/aggostini/sobre/*"} element={<AboutPage />} />
-        <Route exact path={"aggostini/produtos"} element={<ProductsPage productID={productID} setProductID={setProductID} />} />
-        <Route exact path={"/aggostini/assistenciatecnica"} element={<AssistancePage />} />
-        <Route exact path={"/aggostini/contato"} element={<ContactPage />} />
-        <Route exact path={"/aggostini/carrinho"} element={<CartPage />} />
-        <Route exact path={"/aggostini/detalhe_produto"} element={<DetailProductPage productID={productID} />} />
+        <Route exact path={"/atuacao"} element={<ActingPage />} />
+        <Route exact path={"/sobre/*"} element={<AboutPage />} />
+        <Route exact path={"/videos"} element={<AssistancePage />} />
+        <Route exact path={"/consulta"} element={<QueryPage />} />
+        <Route exact path={"/noticias"} element={<CartPage />} />
         <Route element={<ErrorPage />} />
       </Routes>
       <Footer />

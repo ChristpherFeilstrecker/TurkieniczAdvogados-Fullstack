@@ -8,16 +8,6 @@
     
 }
 
-.btn-rigth-container a{
-    text-decoration: none;
-    color:white;
-}
-
-.btn-rigth-container {
-    
-    
-}
-
 .body-container-detail-page{
     display: flex;
     margin-top: -8rem;
@@ -109,16 +99,6 @@
 .arrow{
     width: 1.5rem;
     cursor: pointer;
-}
-
-.sub-description{
-    font-size: 1rem;
-}
-
-.align-container{
-    
-    display: flex;
-    justify-content: center;
 }
 
 

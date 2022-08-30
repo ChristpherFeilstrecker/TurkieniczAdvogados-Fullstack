@@ -1,14 +1,11 @@
-import hands from "../../../../../images/comercial-aggostini.jpg"
+import produtoseservicos from "../../../../../images/servicos.jpg"
 
 export default function SubSection2About2() {
     return (
         <div className="left-container-about-section-2">
-            <div data-aos="fade-left" className="title-left-about-section-2">PRODUTOS E SERVIÇOS</div>
-            <div data-aos="fade" className="text-left-about-section-2">Além desse respaldo técnico, o cliente conta com uma completa linha de
-materiais hidráulicos, aquecedores de água, pressurizadores, material
-para energia solar, louças e metais sanitários das melhores marcas como
-Deca, Docol, Meber, Tigre, Aquebem, Bosch, Rinnai e Orbis.</div>
-            <img data-aos="fade" className="image-section-2" src={hands} alt="hands" />
+            <div data-aos="fade-left" className="title-left-about-section-2">SERVIÇOS</div>
+            <div data-aos="fade" className="text-left-about-section-2">Descrição dos serviços...  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut luctus risus. Fusce vitae felis tempus, laoreet turpis sed, ultricies ex. Pellentesque ut magna leo. Vestibulum eget tellus enim. Proin feugiat elit aucto. orem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut luctus risus. Fusce vitae felis tempus, laoreet turpis sed, ultricies ex. Pellentesque ut magna leo. Vestibulum eget tellus enim. Proin feugiat elit aucto.</div>
+            <img data-aos="fade" className="image-section-2" src={produtoseservicos} alt="hands" />
         </div>
     )
 }
