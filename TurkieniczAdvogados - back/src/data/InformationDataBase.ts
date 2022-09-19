@@ -4,8 +4,9 @@ export class InformationDatabase extends BaseDataBase {
 
    protected tableName: string = "pcgarage_informacoes";
 
-   
+   /*
    public async getInformations(): Promise<void | any> {
+      
       try {
          const result = await BaseDataBase.connection.raw(`
          SELECT * from ${this.tableName};
@@ -19,20 +20,53 @@ export class InformationDatabase extends BaseDataBase {
          }
       }
    }
+*/
+   public async getInformations(): Promise<void | any> {
+      
+      let query = `SELECT * from ${this.tableName};`
+    
+      try {
+
+         const result = await BaseDataBase.connection.raw(query);
+
+         return result[0]
+         
+      } catch (error) {
+         if (error instanceof Error) {
+            throw new Error(error.message)
+         }
+      }
+   }
+
+
 
    public async editInformation(
       id: String,
       telefone: String,
-      celular: String,
+      whats: String,
       email: String,
       endereco: String,
+      bairro: String,
+      cidade: String,
+      estadoPaisCep: String,
       facebook: String,
       instagram: String,
-      youtube: String
+      twiter: String
         
      ): Promise<void | any> {
       try {
-         let query = `UPDATE \`${this.tableName}\` SET \`telefone\`="${telefone}", \`celular\`="${celular}", \`email\`="${email}", \`endereco\`="${endereco}", \`facebook\`="${facebook}", \`instagram\`="${instagram}", \`youtube\`="${youtube}" WHERE \`id\`="${id}";`
+         let query = `UPDATE \`${this.tableName}\`
+            SET \`telefone\`="${telefone}",
+            \`whats\`="${whats}",
+            \`email\`="${email}",
+            \`endereco\`="${endereco}",
+            \`bairro\`="${bairro}",
+            \`cidade\`="${cidade}",
+            \`estadoPaisCep\`="${estadoPaisCep}",
+            \`facebook\`="${facebook}",
+            \`instagram\`="${instagram}",
+            \`twiter\`="${twiter}"
+            WHERE \`id\`="${id}";`
   
          const result = await BaseDataBase.connection.raw(
            query

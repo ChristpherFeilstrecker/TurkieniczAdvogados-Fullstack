@@ -1,10 +1,10 @@
 import BaseDataBase from "./BaseDatabase";
 
+
 export class AdminDatabase extends BaseDataBase {
 
    protected tableName: string = "pc_garage_admin";
 
-   
    public async getAdmin(): Promise<void | any> {
       try {
          const result = await BaseDataBase.connection.raw(`
@@ -19,12 +19,33 @@ export class AdminDatabase extends BaseDataBase {
          }
       }
    }
+
    public async getUserByName(
       nome: String
    ): Promise<void | any> {
       try {
  
          let query = `SELECT * from \`${this.tableName}\` WHERE \`nome\`="${nome}";`
+  
+         const result = await BaseDataBase.connection.raw(
+           query
+         );
+
+         return result[0]
+         
+      } catch (error) {
+         if (error instanceof Error) {
+            throw new Error(error.message)
+         }
+      }
+   }
+
+   public async getUserById(
+      id: String
+   ): Promise<void | any> {
+      try {
+ 
+         let query = `SELECT * from \`${this.tableName}\` WHERE \`id\`="${id}";`
   
          const result = await BaseDataBase.connection.raw(
            query

@@ -13,8 +13,9 @@ export class AdminBusiness {
    ) {
 
    }
-   public async admin() {
+   public async admin(token: string) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          const admin = await this.adminDatabase.getAdmin();
 
@@ -37,9 +38,7 @@ export class AdminBusiness {
    public async login(nome: string, password: string) {
 
       try {
-         if (!nome || !password) {
-            throw new Error("Preencha todos os dados corretamente");
-         }
+      
          const user = await this.adminDatabase.getUserByName(nome);
 
          if (!user) {
@@ -71,14 +70,13 @@ export class AdminBusiness {
    }
 
    public async addadmin(
+      token:string,
       nome: string,
       password: string
 
    ) {
       try {
-         if (!nome || !password) {
-            throw new Error("Preencha todos os dados corretamente");
-         }
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          const id = this.idGenerator.generate();
 
@@ -105,17 +103,24 @@ export class AdminBusiness {
    }
 
    public async deleteAdmin(
+      token:string,
       id: String
    ) {
       try {
+         
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
-         if (!id) {
-            throw new Error("Business - Necessário informar id para deletar administrador");
-         }
+        const adm = await this.adminDatabase.getUserById(id);
 
+        if (!adm || adm.length === 0 ) {
+           throw new Error("administrador inexistente ou id incorreto");
+        }
+
+ 
          await this.adminDatabase.deleteAdmin(
             id
          );
+ 
 
          return ("Business - Produto deletado com sucesso");
       } catch (error) {

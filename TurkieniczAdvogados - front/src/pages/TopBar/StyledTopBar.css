@@ -5,7 +5,7 @@
     background-color: rgb(14, 23, 52);
     width: 100%;
     position: fixed;
-    height: 120px;
+    height: 140px;
     display: flex;
     border-bottom-width: medium;
     border-bottom-style: solid;
@@ -46,7 +46,7 @@
 
 .logo {
     cursor: pointer;
-    width: 160px;
+    width: 90%;
 }
 
 .nav-container {

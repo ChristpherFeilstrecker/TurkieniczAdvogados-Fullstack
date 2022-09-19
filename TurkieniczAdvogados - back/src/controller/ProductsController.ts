@@ -1,13 +1,19 @@
 import { Request, Response } from "express";
 import ProductsBusiness from "../business/ProductsBusiness";
+import { body, validationResult } from "express-validator";
 
 export class ProductsController {
 
    public async products(req: Request, res: Response) {
       try {
-         const test = ""
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
 
-         const result = await ProductsBusiness.products();
+         const { token } = req.body
+
+         const result = await ProductsBusiness.products(token);
          res.status(200).send(result);
       } catch (error) {
 
@@ -19,11 +25,74 @@ export class ProductsController {
       }
    }
 
-   public async editProduct(req: Request, res: Response) {
+ 
+
+   public async addProduct(req: Request, res: Response) {
       try {
-         const { id, id_galeria, nome, descricao, observacao, imagem1,imagem2,imagem3,imagem4,imagem5 } = req.body
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+
+         const {token, id_galeria, nome, descricao, observacao, imagem1 } = req.body
+
+         const result = await ProductsBusiness.addProduct(
+            token,
+            id_galeria,
+            nome,
+            descricao,  
+            observacao, 
+            imagem1
+         );
+         res.status(200).send(result);
+      } catch (error) {
+
+         if (error instanceof Error) {
+            res.status(400).send(error.message);
+         } else {
+            res.send({ message: "Controller - Algo de errado ao adicionar produto" })
+         }
+      }
+   }
+
+   public async addImgProduct(req: Request, res: Response) {
+      try {
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+
+         const { id, imagem2,imagem3,imagem4,imagem5} = req.body
+
+         const result = await ProductsBusiness.addImgProduct( 
+            id,
+            imagem2,
+            imagem3,
+            imagem4,
+            imagem5
+         );
+         res.status(200).send(result);
+      } catch (error) {
+
+         if (error instanceof Error) {
+            res.status(400).send(error.message);
+         } else {
+            res.send({ message: "Controller - Algo de errado ao adicionar produto" })
+         }
+      }
+   }
+
+  public async editProduct(req: Request, res: Response) {
+      try {
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+
+         const {token, id, id_galeria, nome, descricao, observacao, imagem1,imagem2,imagem3,imagem4,imagem5 } = req.body
 
          const result = await ProductsBusiness.editProduct(
+            token,
             id,
             id_galeria,
             nome,
@@ -46,55 +115,17 @@ export class ProductsController {
       }
    }
 
-   public async addProduct(req: Request, res: Response) {
-      try {
-         const { id_galeria, nome, descricao, observacao, imagem1 } = req.body
-
-         const result = await ProductsBusiness.addProduct(
-            id_galeria,
-            nome,
-            descricao,  
-            observacao, 
-            imagem1
-         );
-         res.status(200).send(result);
-      } catch (error) {
-
-         if (error instanceof Error) {
-            res.status(400).send(error.message);
-         } else {
-            res.send({ message: "Controller - Algo de errado ao adicionar produto" })
-         }
-      }
-   }
-
-   public async addImgProduct(req: Request, res: Response) {
-      try {
-         const { id, imagem2,imagem3,imagem4,imagem5} = req.body
-
-         const result = await ProductsBusiness.addImgProduct( 
-            id,
-            imagem2,
-            imagem3,
-            imagem4,
-            imagem5
-         );
-         res.status(200).send(result);
-      } catch (error) {
-
-         if (error instanceof Error) {
-            res.status(400).send(error.message);
-         } else {
-            res.send({ message: "Controller - Algo de errado ao adicionar produto" })
-         }
-      }
-   }
-
    public async deleteImgProduct(req: Request, res: Response) {
       try {
-         const { id, imagem} = req.body
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+
+         const {token, id, imagem} = req.body
 
          const result = await ProductsBusiness.deleteImgProduct( 
+            token,
             id,
             imagem
          );
@@ -111,9 +142,16 @@ export class ProductsController {
 
    public async deleteProduct(req: Request, res: Response) {
       try {
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+         
          const  id  = req.query.id
+         const { token } = req.body
 
          const result = await ProductsBusiness.deleteProduct(
+            token,
             id as string
          );
          res.status(200).send(result);

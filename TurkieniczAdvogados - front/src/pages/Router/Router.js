@@ -1,17 +1,19 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import "./StyledRouter.css";
+import logo from '../../images/pclogo.jpg';
+import iconWhats from '../../images/whatsapp-fixed.png';
+
 import TopBar from '../TopBar/TopBar'
 import Footer from '../Footer/Footer';
 import IntroPage from '../IntroPage/IntroPage'
 import ActingPage from '../ActingPage/ActingPage'
 import AboutPage from '../AboutPage/AboutPage'
-import AssistancePage from '../VideosPage/VideosPage'
+import VideosPage from '../VideosPage/VideosPage'
+import VideoPlayerPage from '../VideoPlayerPage/VideoPlayerPage'
+import NewsPage from '../NewsPage/NewsPage';
 import QueryPage from '../QueryPage/QueryPage';
-import CartPage from '../CartPage/CartPage'
-import ErrorPage from '../ErrorPage/ErrorPage'
-import logo from '../../images/pclogo.jpg';
-import iconWhats from '../../images/whatsapp-fixed.png';
+import AdminPage from '../AdminPage/AdminPage';
 
 export const Router = () => {
   const [splash, setSplash] = useState(false)
@@ -41,10 +43,11 @@ useEffect(()=>{
         <Route exact path={"/"} element={<IntroPage />} />
         <Route exact path={"/atuacao"} element={<ActingPage />} />
         <Route exact path={"/sobre/*"} element={<AboutPage />} />
-        <Route exact path={"/videos"} element={<AssistancePage />} />
+        <Route exact path={"/equipe"} element={<VideosPage />} />
         <Route exact path={"/consulta"} element={<QueryPage />} />
-        <Route exact path={"/noticias"} element={<CartPage />} />
-        <Route element={<ErrorPage />} />
+        <Route exact path={"/noticias"} element={<NewsPage />} />
+        <Route exact path={"/player"} element={<VideoPlayerPage />} />
+        <Route exact path={"/admin/*"} element={<AdminPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

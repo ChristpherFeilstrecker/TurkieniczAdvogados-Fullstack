@@ -1,16 +1,21 @@
 import { ProductsDatabase } from "../data/ProductsDataBase";
 import idGenerator, { IdGenerator } from "../services/idGenerator";
+import { TokenGenerator } from "../services/tokenGenerator";
 
 export class ProductsBusiness {
 
    constructor(
       private idGenerator: IdGenerator,
       private productsDatabase: ProductsDatabase,
+      private tokenGenerator: TokenGenerator
    ) {
 
    }
-   public async products() {
+   public async products(
+      token:string
+   ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          const info = await this.productsDatabase.getProducts();
 
@@ -30,88 +35,10 @@ export class ProductsBusiness {
       }
    }
 
-   public async editProduct(
-      id: String,
-      id_galeria: String,
-      nome: String,
-      descricao: String,
-      observacao: String,
-      imagem1: String,
-      imagem2: String,
-      imagem3: String,
-      imagem4: String,
-      imagem5: String
-   ) {
-      try {
-
-         if (!id) {
-            throw new Error("Business - Necessário informar um ID válido");
-         }
-
-         if (!nome && !id_galeria && !descricao && !observacao && !imagem1 && !imagem2 && !imagem3 && !imagem4 && !imagem5) {
-            throw new Error("Business - Necessário informar no mínimo um atributo para editar");
-         }
-
-
-         const highlights = await this.productsDatabase.editProduct(
-            id,
-            id_galeria,
-            nome,
-            descricao,
-            observacao,
-            imagem1
-
-         );
-
-         if (imagem2) {
-            let pos = "imagem2"
-            const highlights = await this.productsDatabase.editProductImagem(
-               id,
-               pos,
-               imagem2
-            );
-         } 
-         if (imagem3) {
-            let pos = "imagem3"
-            const highlights = await this.productsDatabase.editProductImagem(
-               id,
-               pos,
-               imagem3
-            );
-         } 
-         
-         if (imagem4) {
-            let pos = "imagem4"
-            const highlights = await this.productsDatabase.editProductImagem(
-               id,
-               pos,
-               imagem4
-            );
-         } 
-          if (imagem5) {
-            let pos = "imagem5"
-            const highlights = await this.productsDatabase.editProductImagem(
-               id,
-               pos,
-               imagem5
-            );
-         }
-
-
-
-
-         return ("Business - Produto editado com sucesso");
-      } catch (error) {
-
-         if (error instanceof Error) {
-            throw new Error(error.message)
-         } else {
-            throw new Error("Business - Erro ao editar produto")
-         }
-      }
-   }
+  
 
    public async addProduct(
+      token:string,
       id_galeria: String,
       nome: String,
       descricao: String,
@@ -119,6 +46,7 @@ export class ProductsBusiness {
       imagem1: String
    ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          if (!id_galeria || !nome || !descricao || !observacao || !imagem1) {
             throw new Error("Business - Necessário informar todos requisitos");
@@ -210,12 +138,93 @@ export class ProductsBusiness {
       }
    }
 
+ public async editProduct(
+      token:string,
+      id: String,
+      id_galeria: String,
+      nome: String,
+      descricao: String,
+      observacao: String,
+      imagem1: String,
+      imagem2: String,
+      imagem3: String,
+      imagem4: String,
+      imagem5: String
+   ) {
+      try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
+
+         if (!id) {
+            throw new Error("Business - Necessário informar um ID válido");
+         }
+
+         if (!nome && !id_galeria && !descricao && !observacao && !imagem1 && !imagem2 && !imagem3 && !imagem4 && !imagem5) {
+            throw new Error("Business - Necessário informar no mínimo um atributo para editar");
+         }
+
+
+         const highlights = await this.productsDatabase.editProduct(
+            id,
+            id_galeria,
+            nome,
+            descricao,
+            observacao,
+            imagem1
+
+         );
+
+         if (imagem2) {
+            let pos = "imagem2"
+            const highlights = await this.productsDatabase.editProductImagem(
+               id,
+               pos,
+               imagem2
+            );
+         } 
+         if (imagem3) {
+            let pos = "imagem3"
+            const highlights = await this.productsDatabase.editProductImagem(
+               id,
+               pos,
+               imagem3
+            );
+         } 
+         
+         if (imagem4) {
+            let pos = "imagem4"
+            const highlights = await this.productsDatabase.editProductImagem(
+               id,
+               pos,
+               imagem4
+            );
+         } 
+          if (imagem5) {
+            let pos = "imagem5"
+            const highlights = await this.productsDatabase.editProductImagem(
+               id,
+               pos,
+               imagem5
+            );
+         }
+
+         return ("Business - Produto editado com sucesso");
+      } catch (error) {
+
+         if (error instanceof Error) {
+            throw new Error(error.message)
+         } else {
+            throw new Error("Business - Erro ao editar produto")
+         }
+      }
+   }
    public async deleteImgProduct(
+      token:string,
       id: String,
       imagem: String
       
    ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          if (!id) {
             throw new Error("Business - Necessário informar um ID válido");
@@ -251,9 +260,11 @@ export class ProductsBusiness {
    }
 
    public async deleteProduct(
+      token:string,
       id: String
    ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          if (!id) {
             throw new Error("Business - Necessário informar id para deletar produto");
@@ -279,5 +290,6 @@ export class ProductsBusiness {
 }
 export default new ProductsBusiness(
    new IdGenerator(),
-   new ProductsDatabase()
+   new ProductsDatabase(),
+   new TokenGenerator()
 )

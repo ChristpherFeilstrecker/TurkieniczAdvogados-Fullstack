@@ -1,13 +1,17 @@
 import { InformationDatabase } from "../data/InformationDataBase";
+import { TokenGenerator } from "../services/tokenGenerator";
 
 export class InformationBusiness {
 
    constructor(
       private informationDatabase: InformationDatabase,
+      private tokenGenerator: TokenGenerator
    ) {
 
    }
-   public async information() {
+   public async information(
+     
+   ) {
       try {
 
          const info = await this.informationDatabase.getInformations();
@@ -29,32 +33,35 @@ export class InformationBusiness {
    }
 
    public async editInformation(
+      token:string,
       id: String,
       telefone: String,
-      celular: String,
+      whats: String,
       email: String,
       endereco: String,
+      bairro: String,
+      cidade: String,
+      estadoPaisCep: String,
       facebook: String,
       instagram: String,
-      youtube: String
+      twiter: String
 
    ) {
       try {
-
-         if (!id ) {
-            throw new Error("Business - Necessário informar um ID válido");
-         }
-
+         const tokenValidation: any = this.tokenGenerator.verify(token)
          
             const highlights = await this.informationDatabase.editInformation(
                id,
                telefone,
-               celular,
+               whats,
                email,
                endereco,
+               bairro, 
+               cidade, 
+               estadoPaisCep,
                facebook,
                instagram,
-               youtube
+               twiter
             );
       
          return ("Business - Informações editadas com sucesso");
@@ -73,4 +80,5 @@ export class InformationBusiness {
 }
 export default new InformationBusiness(
    new InformationDatabase(),
+   new TokenGenerator()
 )

@@ -1,12 +1,19 @@
 import { Request, Response } from "express";
 import AdminBusiness from "../business/AdminBusiness";
+import { body, validationResult } from "express-validator";
 
 export class AdminController {
 
    public async admin(req: Request, res: Response) {
       try {
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
 
-         const result = await AdminBusiness.admin();
+         const { token } = req.body
+
+         const result = await AdminBusiness.admin(token);
          res.status(200).send(result);
       } catch (error) {
 
@@ -20,11 +27,18 @@ export class AdminController {
 
     public async addadmin(req: Request, res: Response) {
       try {
-         const { nome, password } = req.body
+
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+
+         const {token, nome, password } = req.body
 
          const result = await AdminBusiness.addadmin(
             nome,
-            password
+            password,
+            token
          );
          res.status(200).send(result);
       } catch (error) {
@@ -39,6 +53,12 @@ export class AdminController {
 
       public async login(req: Request, res: Response) {
       try {
+
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+
          const { nome, password } = req.body
          const result = await AdminBusiness.login(nome, password);
          res.status(200).send(result);
@@ -53,12 +73,25 @@ export class AdminController {
 
    public async deleteAdmin(req: Request, res: Response) {
       try {
-         const  id  = req.query.id
 
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+
+         const  id  = req.query.id
+         const {token} = req.body
+
+         if(typeof id !== 'string'){
+            res.send({ message: "Controller - Id deve ser uma string" })
+         }
+         
          const result = await AdminBusiness.deleteAdmin(
+            token as string,
             id as string
          );
-         res.status(200).send(result);
+         
+         res.status(200).send("result");
       } catch (error) {
 
          if (error instanceof Error) {

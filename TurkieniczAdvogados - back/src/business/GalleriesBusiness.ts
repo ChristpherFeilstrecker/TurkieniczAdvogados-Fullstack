@@ -1,16 +1,21 @@
 import { GalleriesDatabase } from "../data/GalleriesDatabase";
 import { IdGenerator } from "../services/idGenerator";
+import { TokenGenerator } from "../services/tokenGenerator";
 
 export class GalleriesBusiness {
 
    constructor(
       private idGenerator: IdGenerator,
       private galleriesDatabase: GalleriesDatabase,
+      private tokenGenerator: TokenGenerator
    ) {
 
    }
-   public async galleries() {
+   public async galleries(
+      token:string
+   ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          const info = await this.galleriesDatabase.getGalleries();
 
@@ -31,12 +36,14 @@ export class GalleriesBusiness {
    }
 
    public async editGallerie(
+      token:string,
       id: String,
       nome: String,
       descricao: String,
       imagem: String
    ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          if (!id ) {
             throw new Error("Business - Necessário informar um ID válido");
@@ -67,11 +74,13 @@ export class GalleriesBusiness {
    }
 
    public async addGallerie(
+      token:string,
       nome: String,
       descricao: String,
       imagem: String
    ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          if ( !nome || !descricao || !imagem ) {
             throw new Error("Business - Necessário informar todos requisitos");
@@ -98,9 +107,11 @@ export class GalleriesBusiness {
    }
 
    public async deleteGallerie(
+      token:string,
       id: String
    ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          if ( !id ) {
             throw new Error("Business - Necessário informar idpara deletar galeria");
@@ -126,6 +137,7 @@ export class GalleriesBusiness {
 }
 export default new GalleriesBusiness(
    new IdGenerator(),
-   new GalleriesDatabase()
+   new GalleriesDatabase(),
+   new TokenGenerator()
    
 )

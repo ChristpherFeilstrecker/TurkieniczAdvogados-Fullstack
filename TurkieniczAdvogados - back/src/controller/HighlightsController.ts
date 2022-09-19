@@ -1,11 +1,14 @@
 import { Request, Response } from "express";
 import HighlightsBusiness from "../business/HighlightsBusiness";
+import { body, validationResult } from "express-validator";
 
 export class HighlightsController {
 
    public async highlights(req: Request, res: Response) {
       try {
+
          const result = await HighlightsBusiness.highlights();
+         
          res.status(200).send(result);
       } catch (error) {
 
@@ -19,14 +22,17 @@ export class HighlightsController {
 
    public async editHighlights(req: Request, res: Response) {
       try {
-         const { id, id_galeria, nome, descricao, preco, imagem } = req.body
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+
+         const { token, id, descricao, imagem } = req.body
 
          const result = await HighlightsBusiness.editHighlights(
+            token,
             id,
-            id_galeria,
-            nome,
             descricao,
-            preco,
             imagem
          );
          res.status(200).send(result);

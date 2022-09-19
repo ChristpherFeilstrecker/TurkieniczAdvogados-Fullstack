@@ -68,6 +68,7 @@
 .icon-midia-footer{
     max-width: 4vw;
     margin-left: 1rem;
+    cursor: pointer;
 }
 
 .footer-title-top{
@@ -103,20 +104,20 @@
 }
 
 .footer-collumn-left-bottom{
-    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     font-family: 'PT Sans Narrow', sans-serif;
-
 }
 
 .footer-collumn-rigth-bottom{
-    height: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.footer-collumn-rigth-bottom{
+    margin-left: 8rem;
 }
 
 @media (max-width: 560px) {
@@ -125,6 +126,29 @@
     flex-direction: column;
     gap: 0.5rem;
 }
+}
+
+@media (max-width: 580px) {
+    .footer-collumn-left-bottom{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        font-family: 'PT Sans Narrow', sans-serif;
+    width: 280px;
+    }
+
+    .footer-collumn-bottom{
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+    }
+
+    .footer-collumn-rigth-bottom{
+        margin-left: 0rem;
+    }
+
+
 }
 
 @media (max-width: 420px) {
@@ -151,6 +175,7 @@
     margin-left: 1rem;
 }
 
+
 }
 
 @media (max-width: 300px) {
@@ -162,6 +187,6 @@
     }
 
     .footer-text, .footer-title{
-font-size: 5vw;
+    font-size: 5vw;
     }
 }

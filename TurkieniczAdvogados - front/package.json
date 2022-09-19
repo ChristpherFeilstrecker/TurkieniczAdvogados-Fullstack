@@ -1,5 +1,5 @@
 {
-  "name": "Template-React",
+  "name": "Turkienics-template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.24.0",
     "cors": "^2.8.5",
+    "fs": "^0.0.1-security",
     "ityped": "^1.0.3",
     "lottie-ios": "^3.2.3",
     "lottie-react-native": "^5.1.1",
@@ -21,7 +22,9 @@
     "react-scripts": "5.0.0",
     "react-spinners": "^0.11.0",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.2"
+    "timers-browserify": "^2.0.12",
+    "web-vitals": "^2.1.2",
+    "xml2js": "^0.4.23"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,4 +51,3 @@
     ]
   }
 }
-

@@ -44,6 +44,9 @@ Em desenvolvimento
 - json
 - jest
 - Multer
+- Express-validator
+- Body-parser
+- Node-dev
 
 
 <h2 id="funcionalidades"> Funcionalidades:

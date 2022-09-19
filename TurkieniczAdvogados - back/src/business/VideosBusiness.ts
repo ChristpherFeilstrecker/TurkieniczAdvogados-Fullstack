@@ -1,15 +1,19 @@
 import { VideosDatabase } from "../data/VideosDatabase";
 import { IdGenerator } from "../services/idGenerator";
+import { TokenGenerator } from "../services/tokenGenerator";
 
 export class VideosBusiness {
 
    constructor(
       private idGenerator: IdGenerator,
       private videosDatabase: VideosDatabase,
+      private tokenGenerator: TokenGenerator
    ) {
 
    }
-   public async videos() {
+   public async videos(
+
+   ) {
       try {
 
          const info = await this.videosDatabase.getVideos();
@@ -31,11 +35,13 @@ export class VideosBusiness {
    }
 
    public async addVideo(
+      token:string,
       nome: String,
       descricao: String,
       url: String
    ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          if ( !nome || !descricao || !url ) {
             throw new Error("Business - Necessário informar todos requisitos");
@@ -61,37 +67,17 @@ export class VideosBusiness {
       }
    }
 
-   public async deleteVideo(
-      id: String
-   ) {
-      try {
 
-         if (!id) {
-            throw new Error("Business - Necessário informar id para deletar produto");
-         }
-
-         await this.videosDatabase.deleteVideo(
-            id
-         );
-
-         return ("Business - Produto deletado com sucesso");
-      } catch (error) {
-
-         if (error instanceof Error) {
-            throw new Error(error.message)
-         } else {
-            throw new Error("Business - Erro ao deletar produto")
-         }
-      }
-   }
 
    public async editVideo(
+      token:string,
       id: String,
       nome: String,
       descricao: String,
       url: String
    ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
          if (!id ) {
             throw new Error("Business - Necessário informar um ID válido");
@@ -121,115 +107,35 @@ export class VideosBusiness {
       }
    }
 
-/*
-   public async editGallerie(
-      id: String,
-      nome: String,
-      descricao: String,
-      imagem: String
-   ) {
-      try {
-
-         if (!id ) {
-            throw new Error("Business - Necessário informar um ID válido");
-         }
-
-         if (!nome && !descricao && !imagem ) {
-            throw new Error("Business - Necessário informar no mínimo um atributo para editar");
-         }
-         
-         if(nome){
-            const Gallerie = await this.galleriesDatabase.editGallerieNome(
-               id,
-               nome
-            );
-         }
-
-         if(descricao){
-            const Gallerie = await this.galleriesDatabase.editGallerieDescricao(
-               id,
-               descricao
-            );
-         }
-
-         if(imagem){
-            const Gallerie = await this.galleriesDatabase.editGallerieImagem(
-               id,
-               imagem
-            );
-         }
-
-         return ("Business - Galeria editada com sucesso");
-      } catch (error) {
-
-         if (error instanceof Error) {
-            throw new Error(error.message)
-         } else {
-            throw new Error("Business - Erro ao editar galeria")
-         }
-      }
-   }
-
-   public async addGallerie(
-      nome: String,
-      descricao: String,
-      imagem: String
-   ) {
-      try {
-
-         if ( !nome || !descricao || !imagem ) {
-            throw new Error("Business - Necessário informar todos requisitos");
-         }
-
-         const id = this.idGenerator.generate();
-         
-          await this.galleriesDatabase.addGallerie(
-            id,
-            nome,
-            descricao,
-            imagem
-         );
-
-         return ("Business - Galeria adicionada com sucesso");
-      } catch (error) {
-
-         if (error instanceof Error) {
-            throw new Error(error.message)
-         } else {
-            throw new Error("Business - Erro ao adicionar galeria")
-         }
-      }
-   }
-
-   public async deleteGallerie(
+   public async deleteVideo(
+      token:string,
       id: String
    ) {
       try {
+         const tokenValidation: any = this.tokenGenerator.verify(token)
 
-         if ( !id ) {
-            throw new Error("Business - Necessário informar idpara deletar galeria");
+         if (!id) {
+            throw new Error("Business - Necessário informar id para deletar produto");
          }
 
-          await this.galleriesDatabase.deleteGallerie(
+         await this.videosDatabase.deleteVideo(
             id
          );
 
-         return ("Business - Galeria excluida com sucesso");
+         return ("Business - Produto deletado com sucesso");
       } catch (error) {
 
          if (error instanceof Error) {
             throw new Error(error.message)
          } else {
-            throw new Error("Business - Erro ao excluir galeria")
+            throw new Error("Business - Erro ao deletar produto")
          }
       }
-   }
-*/
+   }  
 
-   
 }
 export default new VideosBusiness(
    new IdGenerator(),
-   new VideosDatabase()
-   
+   new VideosDatabase(),
+   new TokenGenerator()
 )

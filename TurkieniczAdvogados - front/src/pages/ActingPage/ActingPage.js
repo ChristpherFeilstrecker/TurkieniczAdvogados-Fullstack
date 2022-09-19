@@ -20,13 +20,13 @@ export default function ActingPage() {
 
     let toDetailActions=()=>{
         if(detailActing === ""){
-          return <div className="container-initial-text">
+          return <div key="intro" className="container-initial-text">
             <div className="initial-text">A palavra é o instrumento irresistível da conquista da liberdade.</div>
             <i className="autor-text">Ruy Barbosa</i>
                 </div>
         }else{
 
-            return <div>
+            return <div key="toDetail">
                 {toDetail}
             </div> 
         }
@@ -39,7 +39,7 @@ export default function ActingPage() {
         </div>
     })
 
-    console.log("areas", areas)
+
 
     return (
         <div className="ActingPage">

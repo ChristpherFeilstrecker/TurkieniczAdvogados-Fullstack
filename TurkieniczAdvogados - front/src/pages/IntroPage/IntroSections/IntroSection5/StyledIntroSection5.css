@@ -1,0 +1,57 @@
+@import "../../../../StyledGlobalColor.css";
+
+#intro-section-5 {
+    height: 15vw;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(118, 90, 78);
+    
+    background-repeat: no-repeat;
+    background-position: center, start;
+
+}
+
+.back-img-section5{
+    left: 0;
+    top: 0;
+    height: 100%;
+    height: auto;
+    opacity: 0.2;
+    position: absolute;
+}
+
+.container-text-introSection-5{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.text-introSection-5{
+    font-size: 1.5rem;
+    color: black;
+    opacity: 1;
+}
+
+.btn-introSection-5, .tag-a{
+    font-size: 1.5rem;
+    color: white;
+    opacity: 1;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.btn-introSection-5:hover, .tag-a:hover{
+color: blue;
+text-decoration: none;
+}
+
+
+@media (max-width: 450px) {
+   
+}

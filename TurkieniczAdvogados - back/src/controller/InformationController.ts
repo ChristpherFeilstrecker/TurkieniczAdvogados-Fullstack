@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import InformationBusiness from "../business/InformationBusiness";
+import { body, validationResult } from "express-validator";
 
 export class InformationController {
 
@@ -20,17 +21,26 @@ export class InformationController {
 
    public async editInformation(req: Request, res: Response) {
       try {
-         const {id, telefone, celular, email, endereco, facebook, instagram,youtube } = req.body
+         const errors = validationResult(req);
+         if(!errors.isEmpty()){
+            return res.status(400).json({errors:errors.array()})
+         }
+         
+         const {token, id, telefone, whats, email, endereco, bairro, cidade, estadoPaisCep, facebook, instagram,twiter } = req.body
 
          const result = await InformationBusiness.editInformation(
+            token,
             id,
             telefone, 
-            celular, 
+            whats, 
             email, 
             endereco, 
+            bairro, 
+            cidade, 
+            estadoPaisCep,
             facebook, 
             instagram,
-            youtube
+            twiter
          );
          res.status(200).send(result);
       } catch (error) {

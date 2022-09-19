@@ -39,15 +39,12 @@ export class HighlightsDatabase extends BaseDataBase {
 
  public async editHighlight(
    id: String,
-   id_galeria: String,
-   nome: String,
    descricao: String,
-   preco: String,
    imagem: String
    
   ): Promise<void | any> {
    try {
-  let query = `UPDATE \`pcgarage_destaque\` SET \`id_galeria\`="${id_galeria}", \`nome\`="${nome}", \`descricao\`="${descricao}", \`preco\`="${preco}", \`imagem\`="${imagem}" WHERE \`id\`="${id}";`
+  let query = `UPDATE \`pcgarage_destaque\` SET \`descricao\`="${descricao}", \`imagem\`="${imagem}" WHERE \`id\`="${id}";`
 
       const result = await BaseDataBase.connection.raw(
         query

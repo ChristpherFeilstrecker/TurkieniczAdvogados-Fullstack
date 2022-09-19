@@ -23,8 +23,8 @@
 .area-box-ActingPage {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 30vw;
+    justify-content: flex-end;
+    width: 25vw;
     padding: 0.8rem 0;
     gap: 0.8rem;
     cursor: pointer;
@@ -40,9 +40,10 @@
 }
 
 .img-text-ActingPage {
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-weight: 600;
     color: black;
+    padding-right: 2rem;
 }
 
 .container-initial-text {

@@ -1,0 +1,126 @@
+#NewsPage{
+   min-height: 100vh;
+   padding-top: 7rem;
+   display: flex;
+   justify-content: center;
+}
+
+.news-page-container{
+   display: flex;
+   flex-direction: column;
+}
+
+.notices-container-news-page{
+   width: 80vw;
+}
+
+.notice-container-intro-news-page{
+   border-bottom-width: 2px; 
+   border-bottom-style: solid; 
+   border-bottom-color: rgb(165, 165, 170,0.5); 
+   border-right-width: 2px; 
+   border-right-style: solid; 
+   border-right-color: rgb(165, 165, 170,0.5); 
+   padding: 4vw 0.5rem;
+   display: flex;
+   gap:0.5rem
+}
+
+.img-icon-news-page{
+   width: 5rem;
+   }
+
+   .info-container-news-page{
+      width: 90%;
+      text-align: justify;
+  }
+
+  .date-container-news-page{
+   width:100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.date-news-page{
+   background-color: var(--blue-strong);
+   display: flex;
+   color: white;
+   padding: 0.2rem 0.5rem;
+}
+
+.fonte-container-news-page{
+   display: flex;
+   align-items: center;
+   cursor:pointer;
+}
+
+.min-icon-news-page{
+   width:1rem;
+   height: 1rem;
+}
+
+.title-news-page{
+   font-size: 1.5rem;
+   color: black;
+   font-weight: 600;
+   text-align: justify
+}
+
+.news-title-page{
+   font-size: 3em;
+   color: black;
+   font-weight: 600;
+   text-align: justify
+}
+
+.text-news-page{
+   font-size: 1.3rem;
+   color: black;
+}
+
+@media (max-width: 720px) {
+   .title-news-page{
+      font-size: 1.3rem;
+      color: black;
+      font-weight: 600;
+      text-align: justify
+   }
+   
+   .news-title-page{
+      font-size: 2.5em;
+      color: black;
+      font-weight: 600;
+      text-align: justify
+   }
+   
+   .text-news-page{
+      font-size: 1rem;
+      color: black;
+   }
+}
+
+@media (max-width: 450px) {
+
+   .notices-container-news-page{
+      width: 90vw;
+   }
+   .title-news-page{
+      font-size: 0.9rem;
+      color: black;
+      font-weight: 600;
+      text-align: justify
+   }
+   
+   .news-title-page{
+      font-size: 2em;
+      color: black;
+      font-weight: 600;
+      text-align: justify
+   }
+   
+   .text-news-page{
+      font-size: 0.7rem;
+      color: black;
+   }
+}

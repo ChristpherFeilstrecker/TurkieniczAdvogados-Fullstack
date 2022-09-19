@@ -19,7 +19,9 @@ export default function TopBar() {
     const navigateCloseMenu = ((nav) => {
         navigate(nav)
         setMenu(true);
+        window.scrollTo(0, 0);
     })
+
 
     return (
         <header className="top-bar-container">
@@ -41,9 +43,11 @@ export default function TopBar() {
                                 <li className="nav-button" onClick={() => navigateCloseMenu(`/`)}>Início</li>
                                 <li className="nav-button" onClick={() => navigateCloseMenu(`/atuacao`)}>Áreas de Atuação</li>
                                 <li className="nav-button" onClick={() => navigateCloseMenu(`/sobre`)}>Quem Somos</li>
-                                <li className="nav-button" onClick={() => navigateCloseMenu(`/videos`)}>Videos</li>
-                                <li className="nav-button" onClick={() => navigateCloseMenu(`/consulta`)}>Consulta Processo</li>
-                                <li className="nav-button" onClick={() => navigateCloseMenu(`/consulta`)}>Noticias</li>
+                                <li className="nav-button" onClick={() => navigateCloseMenu(`/equipe`)}>Equipe</li>
+                                <li className="nav-button"> 
+                                <a href="https://integra.adv.br/login-integra.asp" target="_blank" rel="noreferrer">Consulta Processo</a>
+                                </li>
+                                <li className="nav-button" onClick={() => navigateCloseMenu(`/noticias`)}>Noticias</li>
                             </ul>
                         </div>
                     </div>
